@@ -4,9 +4,9 @@ import pandas as pd
 from email.mime.text import MIMEText
 
 
-sender_email = 'dhanushkgowda2226@gmail.com'
+sender_email = '#@gmail.com'
 sender_password = 'pass'
-#recipient_email = 'shrutishreya0709@gmail.com'
+#recipient_email = '#'
 subject = 'Unveiling the Ultimate Challenge: Capture the Flag Event on August 18th!'
 message = """
 Warm regards from the TEAM SARK!
