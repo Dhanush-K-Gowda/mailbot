@@ -5,7 +5,7 @@ from email.mime.text import MIMEText
 
 
 sender_email = 'dhanushkgowda2226@gmail.com'
-sender_password = 'zjbowbdpuedrirlh'
+sender_password = 'pass'
 #recipient_email = 'shrutishreya0709@gmail.com'
 subject = 'Unveiling the Ultimate Challenge: Capture the Flag Event on August 18th!'
 message = """
@@ -34,14 +34,16 @@ for remail in df['Email']:
     msg['From'] = sender_email
     msg['To'] = remail
     msg['Subject'] = subject
-    msg.attach(MIMEText(message, 'plain'))
+    msg.attach(MIMEText(message, 'plain'))
+
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
 
 
     server.login(sender_email, sender_password)
 
-    server.sendmail(sender_email,remail,msg.as_string())
+    server.sendmail(sender_email,remail,msg.as_string())
+
     server.quit()
     print("Email sent successfully!")
 
