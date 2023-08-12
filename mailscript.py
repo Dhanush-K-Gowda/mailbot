@@ -3,7 +3,7 @@ from email.mime.multipart import MIMEMultipart
 import pandas as pd
 from email.mime.text import MIMEText
 
-# Email configuration
+
 sender_email = 'dhanushkgowda2226@gmail.com'
 sender_password = 'zjbowbdpuedrirlh'
 #recipient_email = 'shrutishreya0709@gmail.com'
@@ -40,15 +40,13 @@ for remail in df['Email']:
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
 
-# Login to your Gmail account
+
     server.login(sender_email, sender_password)
-# Send the email
-    server.sendmail(sender_email, remail, msg.as_string())
-# Quit the server
+
+    server.sendmail(sender_email,remail,msg.as_string())
     server.quit()
     print("Email sent successfully!")
 
 
 
-# Create MIME message
 
