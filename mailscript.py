@@ -2,6 +2,7 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 import pandas as pd
 from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
 
 
 sender_email = '#@gmail.com'
@@ -29,12 +30,18 @@ TEAM SARK
 csv_path = 'maillist.csv'
 df = pd.read_csv(csv_path)
 
+with open('event_image.jpg', 'rb') as image_file:
+    image = MIMEImage(image_file.read())
+    image.add_header('Content-Disposition', 'attachment', filename='event_image.jpg')
+
 for remail in df['Email']:
     msg = MIMEMultipart()
     msg['From'] = sender_email
     msg['To'] = remail
     msg['Subject'] = subject
     msg.attach(MIMEText(message, 'plain'))
+    msg.attach(image)
+    
 
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
